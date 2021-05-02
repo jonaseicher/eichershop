@@ -1,0 +1,7 @@
+{
+  "viewportHeight": 900,
+  "viewportWidth": 1600,
+  "baseUrl": "http://localhost:8181/",
+  "requestTimeout": 30000,
+  "chromeWebSecurity": false
+}

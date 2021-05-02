@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chart.name" . }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "chart.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/path: /actuator/prometheus
+        prometheus.io/port: "9337"
+        prometheus.io/scrape: "true"
+        timestamp: {{ now | quote }}
+    spec:
+      serviceAccountName: eichershop-service-account
+      securityContext:
+        fsGroup: 101
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ include "chart.registryForNamespace" . }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            limits:
+              cpu: 1.0
+              memory: 2048Mi
+            requests:
+              cpu: 0.1
+              memory: 1024Mi
+          ports:
+            - name: http
+              containerPort: {{ .Values.image.port }}
+              protocol: TCP
+          env:
+            # we exposed the actual pod name as ENV_VAR to include in splunk config below ... based on this:
+            # https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: EKS_NAMESPACE
+              value: "{{ .Release.Namespace }}"
+            - name: AWS_REGION
+              value: eu-central-1
+            - name: WEBSSO_VALIDATION_KEY
+              value: {{ include "chart.ssoPublicKeyPathForNamespace" . }}
+            - name: SPLUNK_OVERRIDE_HOSTNAME
+              value: "eks-{{ .Release.Namespace }}-${MY_POD_NAME}"
+            - name: SPLUNK_OVERRIDE_TOKEN
+              value: {{ include "chart.splunkTokenForNamespace" . }}
+            - name: KAFKA_BOOTSTRAP_ADDRESS
+              value: {{ include "chart.kafkaBootstrapAddress" . }}
+            - name: SCHEMA_REGISTRY_URL
+              value: {{ include "chart.schemaRegistryUrl" . }}
+          readinessProbe:
+            httpGet:
+              path: /actuator/info
+              # port: {{ .Values.image.port }}
+              port: 9337
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            failureThreshold: 12
+          livenessProbe:
+            httpGet:
+              path: /actuator/info
+              # port: {{ .Values.image.port }}
+              port: 9337
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            failureThreshold: 6
+

@@ -1,0 +1,58 @@
+plugins {
+	id 'java'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.springframework.boot' version '2.4.2'
+	id "io.freefair.lombok" version "5.3.0"
+	id 'org.siouan.frontend-jdk11' version '5.0.0'
+	// id "com.commercehub.gradle.plugin.avro" version "0.9.1"
+
+}
+
+frontend {
+	packageJsonDirectory = new File("$projectDir/frontend")
+    nodeVersion = '14.15.0'
+    assembleScript = 'run build'
+    // cleanScript = 'run clean'
+    // checkScript = 'run check'
+}
+
+group = 'de.eicher.scs'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	gradlePluginPortal()
+	maven {
+		url "https://packages.confluent.io/maven/"
+	}
+	maven {
+		url "https://splunk.jfrog.io/splunk/ext-releases-local"
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+	testLogging.showStandardStreams = true
+}
+
+bootRun {
+  jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006"]
+  if(project.hasProperty('local')){
+	  args = ["--spring.profiles.active=local"]
+  }
+}

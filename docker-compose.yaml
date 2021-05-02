@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    eichershop:
+        container_name: eichershop
+        build:
+            context: .
+        image: eichershop
+        ports:
+            - 8080:8080
+            - 5005:5005
+        environment:
+            - JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n"
+            # - SALCUS_SERVICE_HOST=host.docker.internal
+            #- logging.level.org.springframework.web.reactive.function.client.ExchangeFunctions=DEBUG

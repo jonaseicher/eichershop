@@ -2,7 +2,7 @@
 module.exports = {
   // The output goes directly into the spring boot app and is served automatically by tomcat.
   outputDir: '../src/main/resources/public/scs/eichershop',
-  outputDir: '../',
+  outputDir: '../docs',
   assetsDir: 'static',
   devServer: {
     proxy: `http://localhost:${process.env.VUE_APP_SPRING_PORT}`,

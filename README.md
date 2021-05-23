@@ -2,11 +2,15 @@
 
 ## Build
 
-Builds Frontend and Backend. Frontend static files are copied to the spring boot embedded tomcat dir serving the files.
+The github action builds the frontend and commits the index.html and static files to the repo under /docs, where it served via github pages.
+
+There is also a gradle build which build Frontend and Backend. Frontend static files are copied to the spring boot embedded tomcat dir serving the files.
 
     ./gradlew build
 
 Check the ```frontend/package.json``` to see how the WebComponents are built.
+
+The gradle build creates webcomponents with the 'build' script in package.json. If you want to build a default vue app, run the 'builddefault' script.
 
 ## Run
 

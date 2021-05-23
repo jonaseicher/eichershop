@@ -2,7 +2,9 @@
 module.exports = {
   // The output goes directly into the spring boot app and is served automatically by tomcat.
   outputDir: '../src/main/resources/public/scs/eichershop',
+  // this is for github pages
   outputDir: '../docs',
+  // this is also for github pages, so the asset paths in index.html point to the correct suffixes.
   publicPath: '/eichershop/',
   assetsDir: 'static',
   devServer: {

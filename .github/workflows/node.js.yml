@@ -30,6 +30,7 @@ jobs:
     - name: Commit build
       run: |
         git status
+        git add .
         git config --global user.name 'github-vue-build-action'
         git config --global user.email 'jonas.maximilian.eicher@users.noreply.github.com'
         git commit -am "Automated commit"

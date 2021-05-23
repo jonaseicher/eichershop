@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Something></Something>
-    <control-panel/>
+    <!-- <control-panel/> -->
   </div>
 </template>
 
@@ -20,5 +20,8 @@ export default class App extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
+body {
+  margin: 0 0 0 0;
+}
 </style>

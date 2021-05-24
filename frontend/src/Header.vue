@@ -1,16 +1,23 @@
 <template>
   <div class="header">
-    <mwc-icon class="icon">agriculture</mwc-icon>
-    <div class="title">Eicher Fanartikel Shop</div>
-    <mwc-icon class="icon">home</mwc-icon>
-    <mwc-icon class="icon">person</mwc-icon>
+    <mwc-icon class="icon">menu</mwc-icon>
+    <mwc-icon class="icon">search</mwc-icon>
+    <span class="title" style="height: 24px">
+      <!-- <mwc-icon class="icon" style="margin-right: 1rem;">agriculture</mwc-icon> -->
+      <span>
+
+      Eicher Fanartikel Shop
+      </span>
+    </span>
+    <!-- <mwc-icon class="icon">person</mwc-icon> -->
     <div>
+      <span style="color:white;" v-if="cartTotalPrice > 0">{{ cartTotalPrice }} €</span>
+    </div>
+    <div style="height: 24px">
       <mwc-icon class="icon">shopping_cart</mwc-icon>
       <span style="color:white;" v-if="cartNumberOfProducts > 0">{{ cartNumberOfProducts }}</span>
-      <!-- <span class="round" v-if="cartTotalPrice > 0">{{ cartTotalPrice }}</span> -->
       <!-- <mwc-icon class="round">4</mwc-icon> -->
     </div>
-    <mwc-icon class="icon">menu</mwc-icon>
   </div>
 </template>
 
@@ -37,14 +44,15 @@ export default class Header extends Vue {
 <style scoped>
 .header {
   display: grid;
-  grid-template-columns: 4rem auto 4rem 4rem 4rem 4rem;
+  grid-template-columns: 4rem 4rem auto 6rem 4rem;
   background-color: rgb(21, 152, 204);
   color: white;
   padding: 1rem;
   align-items: center;
+  text-align: center;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 20px;
 }
 </style>

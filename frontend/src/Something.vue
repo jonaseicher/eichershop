@@ -1,8 +1,5 @@
 <template>
 <div>
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <div class="header">
     <mwc-icon class="icon">agriculture</mwc-icon>
     <div class="title">Eicher Fanartikel Shop</div>
@@ -76,21 +73,24 @@ export default class Something extends Vue {
 
 .title {
   font-size: 20px;
-  font-family: 'Roboto', sans-serif;
 }
 .btn {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  background-color: rgb(21, 152, 204);
+  color: white;
+  /* font-size: 24px; */
+  padding: 0.4rem 0.6rem;
   border: 1px solid white;
 }
 
 .btn1 {
   border-radius: 50% 0 0 50%;
+  cursor: pointer;
 }
 .btn2 {
   /* border-radius: 0 0 50% 50%; */
 }
 .btn3 {
   border-radius: 0 50% 50% 0;
+  cursor: pointer;
 }
 </style>

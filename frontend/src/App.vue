@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <Header></Header>
     <Something></Something>
     <!-- <control-panel/> -->
   </div>
@@ -12,12 +12,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Something from './Something.vue';
-import ControlPanel from './ControlPanel.vue';
+import Header from './Header.vue';
 
 @Component({
   components: {
     Something,
-    ControlPanel,
+    Header,
   },
 })
 export default class App extends Vue {

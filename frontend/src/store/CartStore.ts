@@ -5,8 +5,6 @@ import {
 import { Article } from './Article';
 import store from './store';
 
-
-
 @Module({ generateMutationSetters: true })
 class CartStore extends VuexModule {
   articles: Article[] = [];

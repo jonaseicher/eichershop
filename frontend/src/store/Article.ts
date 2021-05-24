@@ -1,7 +1,7 @@
 export class Article {
   price!: number;
 
-  amountInCart: number = 0;
+  amountInCart = 0;
 
   name!: string;
 

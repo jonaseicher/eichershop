@@ -1,0 +1,9 @@
+# Match copy paste articles from old eicher-shop:
+
+Find:
+\s(\d{4})\n(.*)\n((.*\n)+?)Euro\s\s([\d\.]+)\n
+
+Replace:
+{\n\tid: $1,\n\tname: $2,\n\tprice: $5\n\tdescription: $3,\n},
+
+description needs some work.

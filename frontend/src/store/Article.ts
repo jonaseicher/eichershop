@@ -1,4 +1,4 @@
-export class Article {
+export default class Article {
   price!: number;
 
   amountInCart = 0;

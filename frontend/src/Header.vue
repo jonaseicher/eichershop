@@ -11,7 +11,7 @@
     </span>
     <!-- <mwc-icon class="icon">person</mwc-icon> -->
     <div>
-      <span style="color:white;" v-if="cartTotalPrice > 0">{{ cartTotalPrice }} €</span>
+      <span style="color:white; border-radius: 10px; border: 1px solid white; padding: 7px" v-if="cartTotalPrice > 0">{{ cartTotalPrice }} €</span>
     </div>
     <div style="height: 24px">
       <mwc-icon class="icon">shopping_cart</mwc-icon>

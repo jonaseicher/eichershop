@@ -52,7 +52,8 @@ export default class Something extends Vue {
 <style scoped>
 .article-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem 2rem;
   padding: 2rem;
 }

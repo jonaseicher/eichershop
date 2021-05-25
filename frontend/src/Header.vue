@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <mwc-icon class="icon">menu</mwc-icon>
-    <mwc-icon class="icon">search</mwc-icon>
+    <mwc-icon class="icon" style="text-align: start">search</mwc-icon>
     <span class="title" style="height: 24px">
       <!-- <mwc-icon class="icon" style="margin-right: 1rem;">agriculture</mwc-icon> -->
       <span>
@@ -14,7 +14,7 @@
       <span style="color:white; border-radius: 10px; border: 1px solid white; padding: 7px" v-if="cartTotalPrice > 0">{{ cartTotalPrice }} €</span>
     </div>
     <div style="height: 24px">
-      <mwc-icon class="icon">shopping_cart</mwc-icon>
+      <mwc-icon class="icon" v-if="cartNumberOfProducts > 0">shopping_cart</mwc-icon>
       <span style="color:white;" v-if="cartNumberOfProducts > 0">{{ cartNumberOfProducts }}</span>
       <!-- <mwc-icon class="round">4</mwc-icon> -->
     </div>
@@ -44,7 +44,7 @@ export default class Header extends Vue {
 <style scoped>
 .header {
   display: grid;
-  grid-template-columns: 4rem 4rem auto 6rem 4rem;
+  grid-template-columns: 1fr 4fr 16fr 3fr 2fr;
   background-color: rgb(21, 152, 204);
   color: white;
   padding: 1rem;

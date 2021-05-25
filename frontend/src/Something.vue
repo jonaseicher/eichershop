@@ -52,7 +52,6 @@ export default class Something extends Vue {
 <style scoped>
 .article-container {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem 2rem;
   padding: 2rem;
@@ -66,7 +65,6 @@ export default class Something extends Vue {
 
 .article:hover {
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.30);
-  /* background-image: linear-gradient(to bottom right, rgb(240, 240, 240), rgb(1,183, 180)); */
 }
 
 .icon {

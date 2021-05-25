@@ -13,9 +13,9 @@
           <button class="button round" @click="addToCart(article.id, 1)">+</button>
         </div>
       </div>
-      <img :src="article.image" alt="" width="100%" height="300" style="object-fit: contain; margin: 1rem 0rem">
+      <img :src="article.image" alt="" width="100%" max-height="300" style="object-fit: contain; margin: 1rem 0rem">
       <div class="price title">{{ article.price }}.00 €</div>
-      <div class="title">{{ article.name }}</div>
+      <div class="title" style="color: darkslategrey">{{ article.name }}</div>
       <!-- <div>{{ article.description }}</div> -->
       <!-- <div>{{ article }}</div> -->
     </div>
@@ -52,13 +52,13 @@ export default class Something extends Vue {
 <style scoped>
 .article-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem 2rem;
   padding: 2rem;
 }
 
 .article {
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 }

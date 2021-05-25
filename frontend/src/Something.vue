@@ -1,5 +1,8 @@
 <template>
 <div>
+  <div class="category-header">
+    <button class="category" v-for="category in categories" :key="category">{{ category }}</button>
+  </div>
   <div class="article-container">
     <article-tile-2 :article="article" v-for="article in articles" :key="article.id"/>
     <!-- <article-tile :article="article" v-for="article in articles" :key="article.id"/> -->
@@ -24,6 +27,14 @@ export default class Something extends Vue {
   get articles() {
     return shopStore.articles;
   }
+
+  get categories() {
+    return this.articles.flatMap((a) => a.tags).filter(this.onlyUnique);
+  }
+
+  onlyUnique(value: string, index: number, self: string[]) {
+    return self.indexOf(value) === index;
+  }
 }
 </script>
 
@@ -34,5 +45,26 @@ export default class Something extends Vue {
   gap: 2rem 2rem;
   padding: 2rem;
   background: var(--background);
+}
+.category-header {
+  background-color: var(--eicher-blue-purple);
+  padding: 1rem;
+  /* width: 100%; */
+  margin: auto;
+  text-align: center;
+}
+.category {
+  background-color: var(--eicher-blue-purple);
+  text-transform: uppercase;
+  margin: 0 1rem;
+  /* margin: auto; */
+  border: none;
+  color: var(--primary-text);
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 20px;
 }
 </style>

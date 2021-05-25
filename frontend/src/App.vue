@@ -32,6 +32,10 @@ body {
 
 :root {
   --eicher-blue: rgb(21, 152, 204);
+  --eicher-blue-purple: #2742D4;
+  --eicher-blue-green: #0ED95A;
+  --eicher-blue-opposite: #FF8C10;
+
   --box-shadow-dark: rgba(0, 0, 0, 0.2);
   --box-shadow-light: rgba(255, 255, 255, 0.5);
 

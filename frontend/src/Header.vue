@@ -43,7 +43,7 @@ export default class Header extends Vue {
 
 <style scoped>
 
-@media (max-width: 50rem) {
+@media (max-width: 35rem) {
   .headergrid {
     grid-template-columns: 1fr 4fr 2fr 1fr;
     grid-template-rows: auto;
@@ -51,16 +51,16 @@ export default class Header extends Vue {
       "title title title title"
       "menu search price cart";
     row-gap: 1rem;
-    border: 1px solid green;
+    /* border: 1px solid green; */
   }
 }
-@media (min-width: 50rem) {
+@media (min-width: 35rem) {
   .headergrid {
     grid-template-columns: 1fr 4fr 16fr 3fr 2fr;
     grid-template-rows: auto;
     grid-template-areas:
       "menu search title price cart";
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 }
 
@@ -73,13 +73,17 @@ export default class Header extends Vue {
   text-align: center;
 }
 
+.menu {
+  grid-area: menu;
+}
+
+.search {
+  grid-area: search;
+}
+
 .title {
   font-size: 20px;
   grid-area: title;
-}
-
-.menu {
-  grid-area: menu;
 }
 
 .price {

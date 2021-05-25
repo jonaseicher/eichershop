@@ -4,21 +4,21 @@
     <div class="article" v-for="article in articles" :key="article.id">
       <div style="text-align: end;">
         <div v-if="article.amountInCart > 0">
-          <button class="button left-semi-circle" style="text-align: center" @click="addToCart(article.id, -1)">-</button>
-          <button class="button">{{ article.amountInCart }}</button>
-          <button class="button right-semi-circle" @click="addToCart(article.id, 1)">+</button>
+          <button class="button left-semi-circle noselect" style="text-align: center" @click="addToCart(article.id, -1)">-</button>
+          <button class="button noselect">{{ article.amountInCart }}</button>
+          <button class="button right-semi-circle noselect" @click="addToCart(article.id, 1)">+</button>
         </div>
         <div v-else>
-          <button class="button round" @click="addToCart(article.id, 1)">+</button>
+          <button class="button round noselect" @click="addToCart(article.id, 1)">+</button>
         </div>
       </div>
-      <img :src="article.image" alt="" width="100%" max-height="300" style="object-fit: contain; margin: 0.5rem 0rem">
+      <img :src="article.image" alt="" width="100%" max-height="300" class="noselect image-contain">
       <div class="price title">{{ article.price }}.00 €</div>
       <div class="title" style="color: var(--secondary-text-note)">{{ article.name }}</div>
       <!-- <div>{{ article.description }}</div> -->
       <!-- <div>{{ article }}</div> -->
     </div>
-    <div class="article">
+    <div class="article noselect">
       Article
     </div>
     <div class="article">
@@ -68,9 +68,9 @@ export default class Something extends Vue {
   box-shadow: 0px 0px 20px var(--box-shadow-hover);
 }
 
-.icon {
-  /* padding: 1rem; */
-  /* color: black; */
+.image-contain {
+  object-fit: contain;
+  margin: 0.5rem 0rem;
 }
 
 .title {

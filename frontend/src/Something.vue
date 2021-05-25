@@ -1,9 +1,8 @@
 <template>
 <div>
-
   <div class="article-container">
     <div class="article" v-for="article in articles" :key="article.id">
-      <div style="text-align: end">
+      <div style="text-align: end;">
         <div v-if="article.amountInCart > 0">
           <button class="button left-semi-circle" style="text-align: center" @click="addToCart(article.id, -1)">-</button>
           <button class="button">{{ article.amountInCart }}</button>
@@ -13,9 +12,9 @@
           <button class="button round" @click="addToCart(article.id, 1)">+</button>
         </div>
       </div>
-      <img :src="article.image" alt="" width="100%" max-height="300" style="object-fit: contain; margin: 1rem 0rem">
+      <img :src="article.image" alt="" width="100%" max-height="300" style="object-fit: contain; margin: 0.5rem 0rem">
       <div class="price title">{{ article.price }}.00 €</div>
-      <div class="title" style="color: darkslategrey">{{ article.name }}</div>
+      <div class="title" style="color: var(--secondary-text-note)">{{ article.name }}</div>
       <!-- <div>{{ article.description }}</div> -->
       <!-- <div>{{ article }}</div> -->
     </div>
@@ -55,16 +54,18 @@ export default class Something extends Vue {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem 2rem;
   padding: 2rem;
+  background: var(--background);
 }
 
 .article {
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px var(--box-shadow);
+  /* color: var(--secondary-text); */
 }
 
 .article:hover {
-  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 0px 20px var(--box-shadow-hover);
 }
 
 .icon {
@@ -82,11 +83,11 @@ export default class Something extends Vue {
 }
 
 .button {
-  background-color: rgb(21, 152, 204);
+  background-color: var(--primary);
   border: none;
-  color: white;
+  color: var(--primary-text);
   padding: 0;
-  border: 1px solid white;
+  border: 1px solid var(--primary-text);
   text-align: center;
   /* text-decoration: none; */
   /* display: inline-block; */
@@ -102,12 +103,12 @@ export default class Something extends Vue {
 }
 
 .round {
-  background-color: white;
-  color: rgb(21, 152, 204);
+  background-color: var(--primary-text);
+  color: var(--primary);
   /* width: 2.5rem;
   height: 2.5rem; */
   border-radius: 50%;
-  border: 2px solid rgb(21, 152, 204);
+  border: 2px solid var(--primary);
   font-size: 24px;
   margin: auto;
 }

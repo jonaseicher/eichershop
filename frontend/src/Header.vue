@@ -45,8 +45,8 @@ export default class Header extends Vue {
 .header {
   display: grid;
   grid-template-columns: 1fr 4fr 16fr 3fr 2fr;
-  background-color: rgb(21, 152, 204);
-  color: white;
+  background-color: var(--header);
+  color: var(--primary-text);
   padding: 1rem;
   align-items: center;
   text-align: center;

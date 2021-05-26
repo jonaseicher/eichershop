@@ -1,6 +1,6 @@
 <template>
 <div class="article">
-  <div style="display: table; width: 100%">
+  <div style="display: table; width: 100%;">
     <span class="title" style="display:table-cell; vertical-align: middle;">
       {{ article.price }} €
     </span>
@@ -44,6 +44,8 @@ export default class ArticleTile2 extends Vue {
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 8px var(--box-shadow);
+  max-width: 30rem;
+  margin: 0 auto;
   /* color: var(--secondary-text); */
 }
 

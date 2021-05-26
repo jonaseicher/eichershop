@@ -6,9 +6,22 @@
     </span>
     <span style="display:table-cell; text-align: right">
       <span v-if="article.amountInCart > 0">
-        <button class="button left-semi-circle noselect" style="text-align: center" @click="addToCart(article.id, -1)">-</button>
+        <button
+          class="button left-semi-circle noselect"
+          style="text-align: center"
+          @click="addToCart(article.id, -1)"
+        >
+          <span style="position: relative; bottom: 1px; left: 2px;">
+            -
+          </span>
+        </button>
         <button class="button noselect">{{ article.amountInCart }}</button>
-        <button class="button right-semi-circle noselect" @click="addToCart(article.id, 1)">+</button>
+        <button
+          class="button right-semi-circle noselect"
+          @click="addToCart(article.id, 1)"
+        >
+        <span style="position: relative; top: 1px; right: 1px;">+</span>
+        </button>
       </span>
       <span v-else>
         <button class="button round noselect" @click="addToCart(article.id, 1)">+</button>

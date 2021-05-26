@@ -1,10 +1,21 @@
 <template>
 <div>
   <div class="category-header">
-    <button class="category" v-for="category in categories" :key="category">{{ category }}</button>
+    <button
+      :class="['category', { active: isCategoryActive(category) }]"
+      v-for="category in categories"
+      :key="category"
+      @click="selectedTag = category"
+    >{{ category }}</button>
+    <button
+      :class="['category', { active: selectedTag === '' }]"
+      @click="selectedTag = ''"
+    >
+      Alles
+    </button>
   </div>
   <div class="article-container">
-    <article-tile-2 :article="article" v-for="article in articles" :key="article.id"/>
+    <article-tile-2 :article="article" v-for="article in filteredArticles" :key="article.id"/>
     <!-- <article-tile :article="article" v-for="article in articles" :key="article.id"/> -->
   </div>
 </div>
@@ -24,8 +35,17 @@ import ArticleTile2 from './ArticleTile2.vue';
   },
 })
 export default class Something extends Vue {
+  selectedTag = '';
+
   get articles() {
     return shopStore.articles;
+  }
+
+  get filteredArticles() {
+    if (!this.selectedTag) {
+      return this.articles;
+    }
+    return this.articles.filter((a) => a.tags.includes(this.selectedTag));
   }
 
   get categories() {
@@ -34,6 +54,10 @@ export default class Something extends Vue {
 
   onlyUnique(value: string, index: number, self: string[]) {
     return self.indexOf(value) === index;
+  }
+
+  isCategoryActive(category: string) {
+    return this.selectedTag === category;
   }
 }
 </script>
@@ -48,7 +72,7 @@ export default class Something extends Vue {
 }
 .category-header {
   background-color: var(--eicher-blue-purple);
-  padding: 1rem;
+  padding: 0rem;
   /* width: 100%; */
   margin: auto;
   text-align: center;
@@ -60,11 +84,17 @@ export default class Something extends Vue {
   /* margin: auto; */
   border: none;
   color: var(--primary-text);
-  padding: 0;
+  padding: 1rem;
   text-align: center;
   cursor: pointer;
   /* text-decoration: none; */
   /* display: inline-block; */
   font-size: 20px;
+}
+.active {
+  background-color: white;
+  color: black;
+  /* background-color: var(--eicher-blue-opposite); */
+  /* border: 1px solid white; */
 }
 </style>

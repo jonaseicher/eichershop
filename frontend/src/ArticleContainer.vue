@@ -34,7 +34,7 @@ import ArticleTile2 from './ArticleTile2.vue';
     ArticleTile2,
   },
 })
-export default class Something extends Vue {
+export default class ArticleContainer extends Vue {
   selectedTag = '';
 
   get articles() {
@@ -65,7 +65,7 @@ export default class Something extends Vue {
 <style scoped>
 .article-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 2rem 2rem;
   padding: 2rem;
   background: var(--background);

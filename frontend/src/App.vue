@@ -4,19 +4,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <Header></Header>
-    <Something></Something>
+    <ArticleContainer></ArticleContainer>
     <!-- <control-panel/> -->
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Something from './Something.vue';
+import ArticleContainer from './ArticleContainer.vue';
 import Header from './Header.vue';
 
 @Component({
   components: {
-    Something,
+    ArticleContainer,
     Header,
   },
 })

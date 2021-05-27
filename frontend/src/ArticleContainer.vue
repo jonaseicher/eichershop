@@ -63,10 +63,21 @@ export default class ArticleContainer extends Vue {
 </script>
 
 <style scoped>
+@media (max-width: 600px) {
+  .article-container {
+   --min-article-width: 140px;
+  }
+}
+@media (min-width: 601px) {
+  .article-container {
+   --min-article-width: 250px;
+  }
+}
+
 .article-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-article-width), 1fr));
+  gap: 1rem 1rem;
   padding: 2rem;
   background: var(--background);
 }

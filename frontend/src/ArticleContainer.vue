@@ -78,7 +78,7 @@ export default class ArticleContainer extends Vue {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--min-article-width), 1fr));
   gap: 1rem 1rem;
-  padding: 2rem;
+  padding: 1rem;
   background: var(--background);
 }
 .category-header {

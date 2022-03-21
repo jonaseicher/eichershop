@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <Header></Header>
     <ArticleContainer></ArticleContainer>
-    <!-- <control-panel/> -->
   </div>
 </template>
 

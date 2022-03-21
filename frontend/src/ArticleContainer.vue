@@ -16,7 +16,6 @@
   </div>
   <div class="article-container">
     <article-tile-2 :article="article" v-for="article in filteredArticles" :key="article.id"/>
-    <!-- <article-tile :article="article" v-for="article in articles" :key="article.id"/> -->
   </div>
 </div>
 </template>

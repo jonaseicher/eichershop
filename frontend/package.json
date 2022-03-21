@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service lint && vue-cli-service serve --port 8181",
     "s": "vue-cli-service lint && vue-cli-service serve --port 8181",
     "serve": "vue-cli-service serve --port 8181",
     "builddefault": "vue-cli-service build",

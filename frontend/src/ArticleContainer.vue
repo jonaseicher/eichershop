@@ -25,12 +25,10 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import '@material/mwc-icon';
 import shopStore from './store/ShopStore';
-import ArticleTile from './ArticleTile.vue';
 import ArticleTile2 from './ArticleTile2.vue';
 
 @Component({
   components: {
-    ArticleTile,
     ArticleTile2,
   },
 })
